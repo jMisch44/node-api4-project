@@ -34,6 +34,10 @@ server.post("/api/login", (req, res) => {
   res.status(201).json(userLogin(req.body));
 });
 
+server.get("/", (req, res) => {
+  res.send("<p>Heroku Deploying Project</p>");
+});
+
 server.get("*", (req, res) => {
   res.send("<p>check url</p>");
 });
