@@ -28,9 +28,21 @@ server.use(cors());
 server.use(express.json());
 
 const userData = [
-  { id: 0, userName: "Bob", password: "" },
-  { id: 1, userName: "John", password: "" },
-  { id: 2, userName: "Jane", password: "" },
+  {
+    id: 0,
+    userName: "Bob",
+    password: "$2b$10$64HD0xju8mPJdvBFtwErZevY6JXxeSGXAOmy1yULJa38kXsxc0wAy",
+  },
+  {
+    id: 1,
+    userName: "John",
+    password: "$2b$10$VB7Z7oDRRxQ6bI62LgdQLuGraTH5ktbFxRXg2UQqQn.heQ.9rcfi6",
+  },
+  {
+    id: 2,
+    userName: "Jane",
+    password: "$2b$10$r5gRNii/8Pd3MoqY34D9QucU0CZR3R/Q40u7GrOUbvCcbcGyAlvGu",
+  },
 ];
 
 async function findUser(user) {
@@ -70,7 +82,7 @@ server.get("/", (req, res) => {
 });
 
 server.get("*", (req, res) => {
-  res.send("<p>check url</p>");
+  res.send("<h2>Url not found</h2> <p>please check your url</p>");
 });
 
 const port = process.env.PORT || 5000;
